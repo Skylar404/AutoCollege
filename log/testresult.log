@@ -1,0 +1,754 @@
+
+
+===   [ 收集测试用例 ]  === 
+
+
+== cases\__st__.py 
+
+
+== cases\班级管理.py 
+
+
+== cases\七年级一班\__st__.py 
+
+
+== cases\七年级一班\web学生登录1.py 
+
+
+== cases\七年级一班\web老师登录1.py 
+
+
+== cases\七年级一班\教师管理.py 
+
+
+== cases\七年级一班\班级管理.py 
+
+
+== cases\七年级一班\数学老师-七年一班\__st__.py 
+
+
+== cases\七年级一班\数学老师-七年一班\学生管理.py 
+
+
+== cases\七年级一班\数学老师-七年一班\教师管理.py 
+
+
+== cases\七年级一班\数学老师-七年一班\初中学生\__st__.py 
+
+
+== cases\七年级一班\数学老师-七年一班\初中学生\web老师登录2.py 
+
+
+== cases\七年级一班\数学老师-七年一班\初中学生\学生管理.py 
+
+
+
+===   [ 执行测试用例 ]  === 
+
+预备执行用例数量 : 24
+
+
+
+  ========= 测试开始 : 20250106_143539 =========
+
+
+
+>>> cases\
+
+[ suite setup ] cases\
+删除所有班级
+删除所有老师
+删除所有学生
+
+
+>>> cases\班级管理.py
+
+* tc000001  -  2025-01-06 14:35:39
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 创建一个班级 
+
+
+** 检查点 **  验证添加成功 ---->  通过
+
+
+** 检查点 **  验证班级列表 ---->  通过
+
+  PASS 
+
+[ case teardown ] tc000001
+清除创建的班级
+
+* tc000081  -  2025-01-06 14:35:39
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 删除一个不存在的id 
+
+
+** 检查点 **  返回结果为404 ---->  通过
+
+  PASS 
+
+
+>>> cases\七年级一班\
+
+[ suite setup ] cases\七年级一班\
+添加七年实验2班
+
+
+>>> cases\七年级一班\web学生登录1.py
+
+* tc005081  -  2025-01-06 14:35:39
+
+[ case setup ] tc005081
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 老师账号登陆web界面 
+
+['AA李钟硕333', '白月学院00002', '202942857462（注册码）', '0', '0']
+['AA李钟硕333', '白月学院00002', '21237381994（注册码）', '0', '0']
+
+** 检查点 **  检查首页信息 ---->  !! 不通过!!
+
+  FAIL    
+Traceback:
+  File "D:\BaiduNetdiskDownload\自动化测试项目实战\项目1\college\cases\七年级一班\web学生登录1.py", line 22, in teststeps
+    CHECK_POINT('检查首页信息', list==expected)
+  File "D:\environment\python\Lib\site-packages\hytest\common.py", line 76, in CHECK_POINT
+    raise AssertionError()
+AssertionError
+
+
+[ case teardown ] tc005081
+删除学生AA李钟硕333
+
+
+>>> cases\七年级一班\web老师登录1.py
+
+* tc005001  -  2025-01-06 14:35:45
+
+[ case setup ] tc005001
+添加七年实验2班的数学老师-丽华
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 老师账号登陆web界面 
+
+
+** 检查点 **  检查首页信息 ---->  通过
+
+
+-- 第 2 步 -- 点击 班级学生 菜单 
+
+
+** 检查点 **  检查学生列表为空 ---->  通过
+
+  PASS 
+
+[ case teardown ] tc005001
+清除七年实验2班的数学老师-丽华
+
+
+>>> cases\七年级一班\教师管理.py
+
+* tc001001  -  2025-01-06 14:35:51
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 创建一个老师，教授学科为初中数学（ID为1） 
+
+
+** 检查点 **  添加老师成功 ---->  通过
+
+
+-- 第 2 步 -- 返回结果包含了刚刚创建的老师信息，ID号和第一步返回的相同 
+
+{'retlist': [{'username': 'lishiming2', 'teachclasslist': [20294], 'realname': '李世民', 'id': 5215, 'phonenumber': '13451813456', 'email': 'jcysdf@123.com', 'idcardnumber': '3209251983090987899'}], 'retcode': 0}
+{'retlist': [{'username': 'lishiming2', 'teachclasslist': [20294], 'realname': '李世民', 'id': 5215, 'phonenumber': '13451813456', 'email': 'jcysdf@123.com', 'idcardnumber': '3209251983090987899'}], 'retcode': 0}
+
+** 检查点 **  检查列表结果 ---->  通过
+
+  PASS 
+
+[ case teardown ] tc001001
+删除老师
+
+
+>>> cases\七年级一班\班级管理.py
+
+* tc000002  -  2025-01-06 14:35:52
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 创建一个班级 
+
+
+** 检查点 **  验证添加成功 ---->  通过
+
+{'name': '实验3班', 'grade__name': '七年级', 'invitecode': '202954694865', 'studentlimit': 80, 'studentnumber': 0, 'id': 20295, 'teacherlist': []}
+
+** 检查点 **  验证班级列表 ---->  通过
+
+  PASS 
+
+[ case teardown ] tc000002
+清除创建的班级
+
+* tc000003_已经存在同年级的同名班级  -  2025-01-06 14:35:52
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 创建一个班级 
+
+
+** 检查点 **  验证添加失败 ---->  通过
+
+{'gradeid': 1, 'retlist': [{'name': '实验2班', 'grade__name': '七年级', 'invitecode': '202942857462', 'studentlimit': 80, 'studentnumber': 0, 'id': 20294, 'teacherlist': []}], 'retcode': 0}
+
+** 检查点 **  验证班级列表 ---->  通过
+
+  PASS 
+
+* tc000051  -  2025-01-06 14:35:52
+
+[ case setup ] tc000051
+添加八年实验4班
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 修改一个班级名为一个新的名字 
+
+{'retcode': 0}
+
+** 检查点 **  验证修改成功 ---->  通过
+
+{'gradeid': 2, 'retlist': [{'name': '普通4班', 'grade__name': '八年级', 'invitecode': '202972574313', 'studentlimit': 80, 'studentnumber': 0, 'id': 20297, 'teacherlist': []}], 'retcode': 0}
+
+** 检查点 **  验证班级列表 ---->  通过
+
+  PASS 
+
+[ case teardown ] tc000051
+清除八年实验4班
+
+* tc000052  -  2025-01-06 14:35:52
+
+[ case setup ] tc000052
+添加八年实验4班
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 班级名为一个新的名字，并且和一个已有的班级同名 
+
+{'retcode': 0}
+实验4班
+{'gradeid': 2, 'retlist': [{'name': '实验4班', 'grade__name': '八年级', 'invitecode': '202984945922', 'studentlimit': 80, 'studentnumber': 0, 'id': 20298, 'teacherlist': []}], 'retcode': 0}
+
+** 检查点 **  验证修改失败 ---->  !! 不通过!!
+
+  FAIL    
+Traceback:
+  File "D:\BaiduNetdiskDownload\自动化测试项目实战\项目1\college\cases\七年级一班\班级管理.py", line 126, in teststeps
+    CHECK_POINT('验证修改失败',update_response.json()['retcode']==1)
+  File "D:\environment\python\Lib\site-packages\hytest\common.py", line 76, in CHECK_POINT
+    raise AssertionError()
+AssertionError
+
+
+[ case teardown ] tc000052
+清除八年实验4班
+
+* tc000053  -  2025-01-06 14:35:52
+
+[ case setup ] tc000053
+添加八年实验4班
+
+  [ case execution steps ]
+
+** 检查点 **  验证修改失败 ---->  通过
+
+
+-- 第 2 步 -- 验证班级列表 
+
+
+** 检查点 **  验证班级列表 ---->  通过
+
+  PASS 
+
+[ case teardown ] tc000053
+清除八年实验4班
+
+* tc000082  -  2025-01-06 14:35:52
+
+[ case setup ] tc000082
+添加七年实验4班
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 删除一个存在的id 
+
+
+** 检查点 **  返回结果正确 ---->  通过
+
+  PASS 
+
+
+>>> cases\七年级一班\数学老师-七年一班\
+
+[ suite setup ] cases\七年级一班\数学老师-七年一班\
+添加七年实验2班的科学老师-丽华
+
+
+>>> cases\七年级一班\数学老师-七年一班\学生管理.py
+
+* tc002001  -  2025-01-06 14:35:52
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 创建一个学生，系统中不存在同登录名的学生 
+
+
+** 检查点 **  添加学生成功 ---->  通过
+
+
+-- 第 2 步 -- 返回结果包含了刚刚创建的学生信息，ID号和第一步返回的相同 
+
+{'retlist': [{'classid': 20294, 'realname': '李钟硕333', 'username': 'lxz00233', 'phonenumber': '13433335569', 'id': 2124}], 'retcode': 0}
+{'retcode': 0, 'retlist': [{'classid': 20294, 'username': 'lxz00233', 'realname': '李钟硕333', 'phonenumber': '13433335569', 'id': 2124}]}
+
+** 检查点 **  检查列表结果 ---->  通过
+
+  PASS 
+
+[ case teardown ] tc002001
+删除学生李钟硕33
+
+
+>>> cases\七年级一班\数学老师-七年一班\教师管理.py
+
+* tc001002  -  2025-01-06 14:35:52
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 创建一个老师，教授学科为初中数学（ID为1） 
+
+
+** 检查点 **  添加老师成功 ---->  通过
+
+
+-- 第 2 步 -- 返回结果包含了刚刚创建的老师信息，ID号和第一步返回的相同 
+
+{'retlist': [{'username': 'lishiming3', 'teachclasslist': [20294], 'realname': '李世民3', 'id': 5217, 'phonenumber': '12451813456', 'email': 'jcysdf@123.com', 'idcardnumber': '3209251983090987799'}], 'retcode': 0}
+{'retlist': [{'username': 'lishiming3', 'teachclasslist': [20294], 'realname': '李世民3', 'id': 5217, 'phonenumber': '12451813456', 'email': 'jcysdf@123.com', 'idcardnumber': '3209251983090987799'}], 'retcode': 0}
+
+** 检查点 **  检查列表结果 ---->  通过
+
+  PASS 
+
+[ case teardown ] tc001002
+删除数学老师李世民3
+
+* tc001003  -  2025-01-06 14:35:52
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 创建一个老师，系统中存在同登录名的老师 
+
+
+** 检查点 **  添加老师成功 ---->  通过
+
+
+-- 第 2 步 -- 返回结果里面没有添加步骤1指定的老师 
+
+{'retlist': [{'username': 'lihua', 'teachclasslist': [20294], 'realname': '丽华', 'id': 5216, 'phonenumber': '13451813444', 'email': 'jcysdf1@123.com', 'idcardnumber': '3209251983090987111'}], 'retcode': 0}
+{'retlist': [{'username': 'lihua', 'teachclasslist': [20294], 'realname': '丽华', 'id': 5216, 'phonenumber': '13451813444', 'email': 'jcysdf1@123.com', 'idcardnumber': '3209251983090987111'}], 'retcode': 0}
+
+** 检查点 **  检查列表结果 ---->  通过
+
+  PASS 
+
+* tc001051  -  2025-01-06 14:35:52
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 修改一老师，使url中的ID为一个不存在的老师ID号 
+
+
+** 检查点 **  添加老师失败返回结果1 ---->  通过
+
+  PASS 
+
+* tc001052  -  2025-01-06 14:35:52
+
+[ case setup ] tc001052
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 同时修改真实名和授课班级。授课班级原来是1个班，改为两个班 
+
+
+** 检查点 **  修改成功，返回结果0 ---->  通过
+
+
+-- 第 2 步 -- 返回结果中刚刚修改的老师，信息更新正确 
+
+{'retlist': [{'username': 'lihua', 'teachclasslist': [20294, 20301], 'realname': '丽华1', 'id': 5216, 'phonenumber': '13551813444', 'email': 'jcysdf12@123.com', 'idcardnumber': '3209251083090987111'}], 'retcode': 0}
+{'retlist': [{'username': 'lihua', 'teachclasslist': [20294, 20301], 'realname': '丽华1', 'id': 5216, 'phonenumber': '13551813444', 'email': 'jcysdf12@123.com', 'idcardnumber': '3209251083090987111'}], 'retcode': 0}
+
+** 检查点 **  检查列表结果 ---->  通过
+
+  PASS 
+
+[ case teardown ] tc001052
+
+** 检查点 **  修改老师为初始状态 ---->  通过
+
+
+* tc001081  -  2025-01-06 14:35:52
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 删除一个老师，使url中的ID为一个不存在的老师ID号 
+
+{'reason': 'id 为`44444444444444`的老师不存在', 'retcode': 404}
+
+** 检查点 **  检查列表结果 ---->  通过
+
+  PASS 
+
+* tc001082  -  2025-01-06 14:35:52
+
+[ case setup ] tc001082
+添加初中体育的老师-李华
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 来删除一个老师，使url中的ID为一个存在的老师ID号 
+
+{'retcode': 0}
+
+** 检查点 **  检查列表结果 ---->  通过
+
+
+** 检查点 **  检查返回结果中该老师已经不在老师列表中 ---->  通过
+
+  PASS 
+
+[ case teardown ] tc001082
+
+
+>>> cases\七年级一班\数学老师-七年一班\初中学生\
+
+[ suite setup ] cases\七年级一班\数学老师-七年一班\初中学生\
+
+
+>>> cases\七年级一班\数学老师-七年一班\初中学生\web老师登录2.py
+
+* tc005002  -  2025-01-06 14:35:52
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 老师账号登陆web界面 
+
+
+** 检查点 **  检查首页信息 ---->  通过
+
+
+-- 第 2 步 -- 点击 班级学生 菜单 
+
+
+** 检查点 **  检查学生列表正确 ---->  通过
+
+  PASS 
+
+* tc0005102  -  2025-01-06 14:36:05
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 老师账号登陆web界面 
+
+  ABORT   Message: no such element: Unable to locate element: {"method":"css selector","selector":"#cart_footer>div:nth-child(2)"}
+  (Session info: chrome=131.0.6778.205); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x00007FF696BDFB05+28789]
+	(No symbol) [0x00007FF696B486E0]
+	(No symbol) [0x00007FF6969E592A]
+	(No symbol) [0x00007FF696A3930E]
+	(No symbol) [0x00007FF696A395FC]
+	(No symbol) [0x00007FF696A828A7]
+	(No symbol) [0x00007FF696A5F47F]
+	(No symbol) [0x00007FF696A7F654]
+	(No symbol) [0x00007FF696A5F1E3]
+	(No symbol) [0x00007FF696A2A938]
+	(No symbol) [0x00007FF696A2BAA1]
+	GetHandleVerifier [0x00007FF696F1933D+3410093]
+	GetHandleVerifier [0x00007FF696F2E7DD+3497293]
+	GetHandleVerifier [0x00007FF696F22A73+3448803]
+	GetHandleVerifier [0x00007FF696CA7BBB+848171]
+	(No symbol) [0x00007FF696B53C3F]
+	(No symbol) [0x00007FF696B4F6E4]
+	(No symbol) [0x00007FF696B4F87D]
+	(No symbol) [0x00007FF696B3ED49]
+	BaseThreadInitThunk [0x00007FFC7CDA259D+29]
+	RtlUserThreadStart [0x00007FFC7DECAF38+40]
+ 
+Traceback:
+  File "D:\BaiduNetdiskDownload\自动化测试项目实战\项目1\college\cases\七年级一班\数学老师-七年一班\初中学生\web老师登录2.py", line 53, in teststeps
+    TLogin.add_homework(para)
+  File "D:\BaiduNetdiskDownload\自动化测试项目实战\项目1\college\lib\web\web登录.py", line 96, in add_homework
+    self.wd.find_element(By.CSS_SELECTOR,'#cart_footer>div:nth-child(2)').click()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\environment\python\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 738, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\environment\python\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 344, in execute
+    self.error_handler.check_response(response)
+  File "D:\environment\python\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#cart_footer>div:nth-child(2)"}
+  (Session info: chrome=131.0.6778.205); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x00007FF696BDFB05+28789]
+	(No symbol) [0x00007FF696B486E0]
+	(No symbol) [0x00007FF6969E592A]
+	(No symbol) [0x00007FF696A3930E]
+	(No symbol) [0x00007FF696A395FC]
+	(No symbol) [0x00007FF696A828A7]
+	(No symbol) [0x00007FF696A5F47F]
+	(No symbol) [0x00007FF696A7F654]
+	(No symbol) [0x00007FF696A5F1E3]
+	(No symbol) [0x00007FF696A2A938]
+	(No symbol) [0x00007FF696A2BAA1]
+	GetHandleVerifier [0x00007FF696F1933D+3410093]
+	GetHandleVerifier [0x00007FF696F2E7DD+3497293]
+	GetHandleVerifier [0x00007FF696F22A73+3448803]
+	GetHandleVerifier [0x00007FF696CA7BBB+848171]
+	(No symbol) [0x00007FF696B53C3F]
+	(No symbol) [0x00007FF696B4F6E4]
+	(No symbol) [0x00007FF696B4F87D]
+	(No symbol) [0x00007FF696B3ED49]
+	BaseThreadInitThunk [0x00007FFC7CDA259D+29]
+	RtlUserThreadStart [0x00007FFC7DECAF38+40]
+
+
+
+* tc0005103  -  2025-01-06 14:36:26
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 老师账号登陆web界面 
+
+  ABORT   Message: no such element: Unable to locate element: {"method":"css selector","selector":"#cart_footer>div:nth-child(2)"}
+  (Session info: chrome=131.0.6778.205); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x00007FF696BDFB05+28789]
+	(No symbol) [0x00007FF696B486E0]
+	(No symbol) [0x00007FF6969E592A]
+	(No symbol) [0x00007FF696A3930E]
+	(No symbol) [0x00007FF696A395FC]
+	(No symbol) [0x00007FF696A828A7]
+	(No symbol) [0x00007FF696A5F47F]
+	(No symbol) [0x00007FF696A7F654]
+	(No symbol) [0x00007FF696A5F1E3]
+	(No symbol) [0x00007FF696A2A938]
+	(No symbol) [0x00007FF696A2BAA1]
+	GetHandleVerifier [0x00007FF696F1933D+3410093]
+	GetHandleVerifier [0x00007FF696F2E7DD+3497293]
+	GetHandleVerifier [0x00007FF696F22A73+3448803]
+	GetHandleVerifier [0x00007FF696CA7BBB+848171]
+	(No symbol) [0x00007FF696B53C3F]
+	(No symbol) [0x00007FF696B4F6E4]
+	(No symbol) [0x00007FF696B4F87D]
+	(No symbol) [0x00007FF696B3ED49]
+	BaseThreadInitThunk [0x00007FFC7CDA259D+29]
+	RtlUserThreadStart [0x00007FFC7DECAF38+40]
+ 
+Traceback:
+  File "D:\BaiduNetdiskDownload\自动化测试项目实战\项目1\college\cases\七年级一班\数学老师-七年一班\初中学生\web老师登录2.py", line 53, in teststeps
+    TLogin.add_homework(para)
+  File "D:\BaiduNetdiskDownload\自动化测试项目实战\项目1\college\lib\web\web登录.py", line 96, in add_homework
+    self.wd.find_element(By.CSS_SELECTOR,'#cart_footer>div:nth-child(2)').click()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\environment\python\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 738, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\environment\python\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 344, in execute
+    self.error_handler.check_response(response)
+  File "D:\environment\python\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#cart_footer>div:nth-child(2)"}
+  (Session info: chrome=131.0.6778.205); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x00007FF696BDFB05+28789]
+	(No symbol) [0x00007FF696B486E0]
+	(No symbol) [0x00007FF6969E592A]
+	(No symbol) [0x00007FF696A3930E]
+	(No symbol) [0x00007FF696A395FC]
+	(No symbol) [0x00007FF696A828A7]
+	(No symbol) [0x00007FF696A5F47F]
+	(No symbol) [0x00007FF696A7F654]
+	(No symbol) [0x00007FF696A5F1E3]
+	(No symbol) [0x00007FF696A2A938]
+	(No symbol) [0x00007FF696A2BAA1]
+	GetHandleVerifier [0x00007FF696F1933D+3410093]
+	GetHandleVerifier [0x00007FF696F2E7DD+3497293]
+	GetHandleVerifier [0x00007FF696F22A73+3448803]
+	GetHandleVerifier [0x00007FF696CA7BBB+848171]
+	(No symbol) [0x00007FF696B53C3F]
+	(No symbol) [0x00007FF696B4F6E4]
+	(No symbol) [0x00007FF696B4F87D]
+	(No symbol) [0x00007FF696B3ED49]
+	BaseThreadInitThunk [0x00007FFC7CDA259D+29]
+	RtlUserThreadStart [0x00007FFC7DECAF38+40]
+
+
+
+* tc0005104  -  2025-01-06 14:36:45
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 老师账号登陆web界面 
+
+  ABORT   Message: no such element: Unable to locate element: {"method":"css selector","selector":"#cart_footer>div:nth-child(2)"}
+  (Session info: chrome=131.0.6778.205); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x00007FF696BDFB05+28789]
+	(No symbol) [0x00007FF696B486E0]
+	(No symbol) [0x00007FF6969E592A]
+	(No symbol) [0x00007FF696A3930E]
+	(No symbol) [0x00007FF696A395FC]
+	(No symbol) [0x00007FF696A828A7]
+	(No symbol) [0x00007FF696A5F47F]
+	(No symbol) [0x00007FF696A7F654]
+	(No symbol) [0x00007FF696A5F1E3]
+	(No symbol) [0x00007FF696A2A938]
+	(No symbol) [0x00007FF696A2BAA1]
+	GetHandleVerifier [0x00007FF696F1933D+3410093]
+	GetHandleVerifier [0x00007FF696F2E7DD+3497293]
+	GetHandleVerifier [0x00007FF696F22A73+3448803]
+	GetHandleVerifier [0x00007FF696CA7BBB+848171]
+	(No symbol) [0x00007FF696B53C3F]
+	(No symbol) [0x00007FF696B4F6E4]
+	(No symbol) [0x00007FF696B4F87D]
+	(No symbol) [0x00007FF696B3ED49]
+	BaseThreadInitThunk [0x00007FFC7CDA259D+29]
+	RtlUserThreadStart [0x00007FFC7DECAF38+40]
+ 
+Traceback:
+  File "D:\BaiduNetdiskDownload\自动化测试项目实战\项目1\college\cases\七年级一班\数学老师-七年一班\初中学生\web老师登录2.py", line 53, in teststeps
+    TLogin.add_homework(para)
+  File "D:\BaiduNetdiskDownload\自动化测试项目实战\项目1\college\lib\web\web登录.py", line 96, in add_homework
+    self.wd.find_element(By.CSS_SELECTOR,'#cart_footer>div:nth-child(2)').click()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\environment\python\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 738, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\environment\python\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 344, in execute
+    self.error_handler.check_response(response)
+  File "D:\environment\python\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#cart_footer>div:nth-child(2)"}
+  (Session info: chrome=131.0.6778.205); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x00007FF696BDFB05+28789]
+	(No symbol) [0x00007FF696B486E0]
+	(No symbol) [0x00007FF6969E592A]
+	(No symbol) [0x00007FF696A3930E]
+	(No symbol) [0x00007FF696A395FC]
+	(No symbol) [0x00007FF696A828A7]
+	(No symbol) [0x00007FF696A5F47F]
+	(No symbol) [0x00007FF696A7F654]
+	(No symbol) [0x00007FF696A5F1E3]
+	(No symbol) [0x00007FF696A2A938]
+	(No symbol) [0x00007FF696A2BAA1]
+	GetHandleVerifier [0x00007FF696F1933D+3410093]
+	GetHandleVerifier [0x00007FF696F2E7DD+3497293]
+	GetHandleVerifier [0x00007FF696F22A73+3448803]
+	GetHandleVerifier [0x00007FF696CA7BBB+848171]
+	(No symbol) [0x00007FF696B53C3F]
+	(No symbol) [0x00007FF696B4F6E4]
+	(No symbol) [0x00007FF696B4F87D]
+	(No symbol) [0x00007FF696B3ED49]
+	BaseThreadInitThunk [0x00007FFC7CDA259D+29]
+	RtlUserThreadStart [0x00007FFC7DECAF38+40]
+
+
+
+
+>>> cases\七年级一班\数学老师-七年一班\初中学生\学生管理.py
+
+* tc002002  -  2025-01-06 14:37:04
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 创建一个学生，系统中不存在同登录名的学生 
+
+
+** 检查点 **  添加学生成功 ---->  通过
+
+
+-- 第 2 步 -- 返回结果包含了刚刚创建的学生信息，ID号和第一步返回的相同 
+
+{'retlist': [{'classid': 20294, 'realname': 'AA李钟硕333', 'username': 'AAlxz00233', 'phonenumber': '13433335569', 'id': 2125}, {'classid': 20294, 'realname': '李钟333', 'username': 'lz00233', 'phonenumber': '13433335569', 'id': 2126}], 'retcode': 0}
+{'retcode': 0, 'retlist': [{'classid': 20294, 'realname': 'AA李钟硕333', 'username': 'AAlxz00233', 'phonenumber': '13433335569', 'id': 2125}, {'classid': 20294, 'username': 'lz00233', 'realname': '李钟333', 'phonenumber': '13433335569', 'id': 2126}]}
+
+** 检查点 **  检查列表结果 ---->  通过
+
+  PASS 
+
+[ case teardown ] tc002002
+删除学生李钟
+
+* tc002081  -  2025-01-06 14:37:04
+
+[ case setup ] tc002081
+增加学生A李钟
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 删除一个学生，使url中的ID为一个存在的学生ID号 
+
+
+** 检查点 **  删除学生A李钟 ---->  通过
+
+
+** 检查点 **  检查返回结果中该学生已经不在列表中 ---->  通过
+
+  PASS 
+
+[ suite teardown ] cases\七年级一班\数学老师-七年一班\初中学生\
+删除学生AA李钟硕333
+
+[ suite teardown ] cases\七年级一班\数学老师-七年一班\
+清除七年实验2班的科学老师-丽华
+
+[ suite teardown ] cases\七年级一班\
+清除七年实验2班
+
+
+  ========= 测试结束 : 20250106_143704 =========
+
+
+  耗时    : 85.833 秒
+
+
+  预备执行用例数量 : 24
+
+  实际执行用例数量 : 24
+
+  通过 : 19
+
+  失败 : 2
+
+  异常 : 3
+
+  套件初始化失败 : 0
+
+  套件清除  失败 : 0
+
+  用例初始化失败 : 0
+
+  用例清除  失败 : 0
